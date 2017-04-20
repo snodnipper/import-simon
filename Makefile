@@ -54,7 +54,7 @@ download:
 	@if [ -z ${project} ]; then echo "Specify the project:\n make download project=[project]"; exit 1; fi
 	@echo Let us download
 
-	rm ./projects/$(project)/download_exec.sh
+	rm -f ./projects/$(project)/download_exec.sh
 
 	@cd ./projects/$(project); while read -r file; \
 	do echo "Starting\n$$file"; \
