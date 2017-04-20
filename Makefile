@@ -2,7 +2,7 @@
 
 all: help
 
-create: 
+create:
 	@if [ -z ${project} ] ; \
 	then \
 		echo "Please specify the project to create."; \
@@ -19,7 +19,7 @@ create:
 	@echo "creating $(project)"
 	@mkdir -p ./projects/ && cp -R environment_template ./projects/$(project)
 
-build: 
+build:
 	@if [ ! -d ./projects/$(project) ] ; \
 	then \
 		echo "Project does not exist.  Stopping."; \
@@ -36,7 +36,7 @@ build:
 	then \
 		echo "No 'build.sh' file to execute and build the 'www' directory.  Stopping."; \
 		exit 1; \
-	fi;	
+	fi;
 
 	mkdir -p ./projects/$(project)/build; \
 	cp ./projects/$(project)/build.sh ./projects/$(project)/build; \
@@ -72,6 +72,7 @@ help:
 	@echo "  make build project=[project-name]    # build project "
 	@echo "  make start project=[project-name]    # start project "
 	@echo "  make stop project=[project-name]     # stop project "
+	@echo "  make download project=[project-name] # create offline map package "	
 	@echo " "
 	@echo " Note: you may find it easiest to define a 'project' environment variable."
 	@echo " "
