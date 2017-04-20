@@ -44,11 +44,11 @@ build:
 
 start:
 	@if [ -z ${project} ]; then echo "Specify the project:\n make start project=[project]"; exit 1; fi
-	@cd ./projects/$(project) && docker-compose up &&
+	@cd ./projects/$(project) && docker-compose up &
 
 stop:
 	@if [ -z ${project} ]; then echo "Specify the project:\n make start project=[project]"; exit 1; fi
-	@cd ./projects/$(project) && docker-compose down &&
+	@cd ./projects/$(project) && docker-compose down &
 
 download:
 	@if [ -z ${project} ]; then echo "Specify the project:\n make download project=[project]"; exit 1; fi
@@ -72,7 +72,7 @@ help:
 	@echo "  make build project=[project-name]    # build project "
 	@echo "  make start project=[project-name]    # start project "
 	@echo "  make stop project=[project-name]     # stop project "
-	@echo "  make download project=[project-name] # create offline map package "	
+	@echo "  make download project=[project-name] # create offline map package "
 	@echo " "
 	@echo " Note: you may find it easiest to define a 'project' environment variable."
 	@echo " "
